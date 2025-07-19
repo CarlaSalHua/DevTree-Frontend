@@ -14,14 +14,12 @@ import { useQueryClient } from "@tanstack/react-query";
 import Header from "./Header";
 import CountUp from "react-countup";
 import type { SocialNetwork, User } from "../types/User";
-import { useViews } from "../context/useViews";
 
 type DevTreeProps = {
   data: User;
 };
 
 export default function DevTree({ data }: DevTreeProps) {
-  const { views } = useViews();
   const [enabledLinks, setEnabledLinks] = useState<SocialNetwork[]>(
     JSON.parse(data.links).filter((item: SocialNetwork) => item.enabled)
   );
